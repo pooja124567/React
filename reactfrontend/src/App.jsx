@@ -6,13 +6,14 @@
 // import Counter from "./components/Counter"
 // import Model from "./components/Model"
 // import Navbar from "./components/Navbar"
-import {Routes, Route} from "react-router-dom"
+import { createBrowserRouter, RouterProvider, Outlet, } from "react-router-dom"
 import Homepage from "./Pages/Homepage"
 import Aboutpage from "./Pages/Aboutpage"
 import Contactpage from "./Pages/contactpage"
 import Loginpage from "./Pages/Loginpage"
 import Servicepage from "./Pages/servicepage"
 import Signpage from "./Pages/signpage"
+import PageNotFound from "./Pages/PageNotFound"
 import Navbar from "./components/Navbar"
 
 
@@ -26,7 +27,89 @@ import Navbar from "./components/Navbar"
 
 
 
+
+
 const App = () => {
+
+
+  const Layout = () => {
+    return (
+      <>
+        <Navbar />
+        <Outlet />
+      </>
+    )
+  }
+
+  const routerpath = createBrowserRouter(
+    [
+      {
+        path: "/",
+        element: <Layout />,
+        children: [
+          {
+            path: "/",
+            element: <Homepage/>,
+          },
+          {
+            path: "/home",
+            element: <Homepage/>,
+          },
+
+          {
+            path: "/about",
+            element: <Aboutpage/>,
+          },
+
+          {
+            path: "/contact",
+            element: <Contactpage/>,
+          },
+
+          {
+            path: "/",
+            element: <Servicepage/>,
+          },
+
+
+
+
+        ]
+      },
+      {
+        path: "/login",
+        element: <Loginpage/>,
+      },
+      {
+        path: "/signpage",
+        element: <Signpage/>,
+      },
+
+      {
+        path: "*",
+        element: <PageNotFound/>,
+      },
+   
+
+
+
+
+      ]
+    )
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   //  const [count, setCount] = useState(0)
 
   // const handleclick = () => {
@@ -63,26 +146,31 @@ const App = () => {
   // const printlog = () => {
   //   console.log("hello world,23");
   // }
-  
+
 
   return (
 
     <>
-    <Navbar/>
+    <RouterProvider router={routerpath}/>
+
+
+      {/* <Navbar/>
 
     <Routes>
+      <Route path="/" element={<Homepage/>} />
       <Route path="/Home" element={<Homepage/>} />
       <Route path="/about" element={<Aboutpage/>} />
       <Route path="/contact" element={<Contactpage/>} />
       <Route path="/services" element={<Servicepage/>} />
       <Route path="/Signpage" element={<Signpage/>} />
       <Route path="/Loginpage" element={<Loginpage/>} />
-    </Routes>
+      <Route path="*"element={<PageNotFound />} />
+    </Routes> */}
 
 
-    
-    {/* <Counter/> */}
-    {/* <Model/> */}
+
+      {/* <Counter/> */}
+      {/* <Model/> */}
 
 
 
