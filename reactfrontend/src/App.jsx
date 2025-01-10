@@ -15,6 +15,9 @@ import Servicepage from "./Pages/servicepage"
 import Signpage from "./Pages/signpage"
 import PageNotFound from "./Pages/PageNotFound"
 import Navbar from "./components/Navbar"
+  
+
+
 
 
 
@@ -67,7 +70,7 @@ const App = () => {
           },
 
           {
-            path: "/",
+            path: "/service",
             element: <Servicepage/>,
           },
 
@@ -151,6 +154,11 @@ const App = () => {
   return (
 
     <>
+    
+
+    
+    
+   
     <RouterProvider router={routerpath}/>
 
 
