@@ -35,7 +35,7 @@ import Navbar from "./components/Navbar"
 const App = () => {
 
 
-  const Layout = () => {
+  const Layout = () => { 
     return (
       <>
         <Navbar />
